@@ -679,10 +679,10 @@ KEO proceeds to create a transaction with this information.
 | stratum    | Integer   |        | N         | ABI's socioeconomic stratum **Only for CO - Colombia** |
 | city       | String    |        | Y         | Name of the customer's city of residence |
 | province   | String    |        | N         | Name of the customer's province of residence |
-| sector     | String    |        | N         | Name of the customer's sector of residence |
+| sector     | String    |        | N         | Name of the customer's sector of residence ** in CNE refers to zona** |
 | address    | String    |        | N         | Customer residence address |
-| latitude   | String    |        | Y         | ABI's customer location latitude |
-| longitude  | String    |        | Y         | ABI's customer location longitude |
+| latitude   | Float    |        | Y         | ABI's customer location latitude |
+| longitude  | Float    |        | Y         | ABI's customer location longitude |
 | invoice    | List      |        | Y         | List of invoices related to a ABI customer  |
 
 
@@ -697,8 +697,8 @@ Customer's invoice information
 | date           | Timestamp |        | Y         | Date and hour of the invoice |
 | poc_id       | String    |        | Y         | Unique ABI customer identifier |
 | abcd           | String    |        | Y         | ABI's customer categorization |
-| channel        | String    |        | Y         | Indicates if the customer consumes at the point of sale |
-| sub_channel    | String    |        | Y         | Type of business |
+| channel        | String    |        | Y         | Indicates if the customer consumes at the point of sale ** in CNE referst to canaonoff ** |
+| sub_channel    | String    |        | Y         | Type of business **in CNE refers to clasecliente** |
 | segment        | String    |        | N         | ABI's segment |
 | amount         | String    |        | Y         | invoiced amount per transaction |
 | extra_data     | Object    |        | N         | Optional field to add specific information needed to create a transaction |
@@ -710,7 +710,7 @@ Customer's invoice information
 ---
 Object where subsidiaries can provide extra data to improve scoring punctuation for its clients
 
-- **DOMINICAN REPUBLIC**
+- **DOMINICAN REPUBLIC (CND)**
 
 
 | Attribute | Type   | Length | Mandatory | Description |
@@ -719,6 +719,25 @@ Object where subsidiaries can provide extra data to improve scoring punctuation 
 | bdr_type  | String |        | Y         | |
 | log_route | String |        | Y         | |
 | credit    | String |        | Y         | Credit type given by ABI's |
+
+- **ECUADOR (CNE)**
+
+
+| Attribute | Type   | Length | Mandatory | Description |
+| --------- | ------ | ------ | --------- | ----------- |
+| cc_mp     | String |        | N         | Unknow |
+| supervision_group     | String |        | Y         | group |
+| supervision_name     | String |        | Y         | |
+| chanel_subchanel_local    | String |        | Y         | business description |
+| N_Veces_Contado    | Integer |        | N         |  |
+| N_Veces_Credito    | Integer |        | N         |  |
+| net_revenue_contado    | Float |        | N         |  |
+| net_revenue_credito    | Float |        | N         |  |
+| gross_contado    | Float |        | N         |  |
+| gross_credito    | Float |        | N         |  |
+| cases_volume_contado    | Integer |        | N         |  |
+| cases_volume_crediro    | Integer |        | N         |  |
+
 
 #### Response 200
 
